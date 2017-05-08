@@ -1,0 +1,73 @@
+<!--Page model head @1-E226A23E-->
+<Page name="bm30101_man_4" restricted="False" included="False"	masterPage="" accessDeniedPage="login.jsp" convertRule="Absolute" onlySslAccess="False">
+<!--End Page model head-->
+
+<!--Record NewRecord1 model @2-C438DD44-->
+    <Record name="NewRecord1" connection="" restricted="False" masterID="" detailForm="" returnPage="" convertRule="Relative" preserveParams="GET" 
+            allowInsert="True" allowUpdate="False" allowDelete="False" allowRead="False" visible="True">
+        <Button name="Button_Insert" operation="Insert"
+                returnPage="" convertRule="Relative"
+                defaultButton="False" doValidate="True" order="1">
+        </Button>
+        <Button name="Button_Cancel" operation=""
+                returnPage="" convertRule="Relative"
+                defaultButton="False" doValidate="False" order="2">
+            <ExcludeParameter name="REG_YY"/>
+            <ExcludeParameter name="REG_NO"/>
+            <ExcludeParameter name="REG_CG"/>
+        </Button>
+        <TextBox name="BOOKSHEET" caption="書表編號" dataType="Text"
+                controlSourceType="DataSource" controlSource=""
+                required="True" unique="" format="" dbFormat="" verificationRule="" errorControl="">
+        </TextBox>
+        <TextBox name="N_REG_YY" caption="新掛號號碼-年度" dataType="Text"
+                controlSourceType="DataSource" controlSource=""
+                required="True" unique="" format="" dbFormat="" verificationRule="" errorControl="">
+        </TextBox>
+        <TextBox name="N_REG_NO" caption="新掛號號碼-號碼" dataType="Text"
+                controlSourceType="DataSource" controlSource=""
+                required="True" unique="" format="" dbFormat="" verificationRule="" errorControl="">
+        </TextBox>
+        <TextBox name="N_REG_CG" caption="新掛號號碼-次數" dataType="Text"
+                controlSourceType="DataSource" controlSource=""
+                required="True" unique="" format="" dbFormat="" verificationRule="" errorControl="">
+        </TextBox>
+        <ListBox name="REG_KIND" caption="業務別" dataType="Text"
+                controlSourceType="DataSource" boundColumn="CODE_SEQ" textColumn="CODE_DESC"
+                connection="SynctConn" controlSource="REG_KIND"
+                required="True" unique="" errorControl="" isHtml="">
+            <Select query="select * from bldcode where code_type='OFC' and CODE_SEQ&lt;&gt;'**'" type="custom" orderBy="">
+            </Select>
+        </ListBox>
+        <TextBox name="REG_KIND_E" dataType="Text"
+                controlSourceType="DataSource" controlSource="REG_KIND"
+                required="" unique="" format="" dbFormat="" verificationRule="" errorControl="">
+        </TextBox>
+        <TextBox name="ACTN_EMPL_E" dataType="Text"
+                controlSourceType="DataSource" controlSource="ACTN_EMPL"
+                required="" unique="" format="" dbFormat="" verificationRule="" errorControl="">
+        </TextBox>
+        <ListBox name="ACTN_EMPL" caption="承辦人" dataType="Text"
+                controlSourceType="DataSource" boundColumn="EMPNO" textColumn="NAME"
+                connection="SynctConn" controlSource="ACTN_EMPL"
+                required="True" unique="" errorControl="" isHtml="">
+            <Select query="SELECT EMPNO, NAME FROM BMSEMP {SQL_Where} {SQL_OrderBy}" type="raw" orderBy="EMPNO">
+                <Where>
+                    <WhereClause>
+                        <Expression expression="(USE_FLAG = 'N')"/>
+
+                    </WhereClause>
+                </Where>
+            </Select>
+        </ListBox>
+        <TextBox name="FIRST_REG" caption="第一次掛號號碼" dataType="Text"
+                controlSourceType="DataSource" controlSource=""
+                required="True" unique="" format="" dbFormat="" verificationRule="" errorControl="">
+        </TextBox>
+    </Record>
+<!--End Record NewRecord1 model-->
+
+<!--Page model tail @1-2BAFA7FA-->
+</Page>
+<!--End Page model tail-->
+

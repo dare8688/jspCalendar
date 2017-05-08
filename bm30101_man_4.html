@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>建築管理資訊系統</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.16254">
+<link rel="icon" type="image/x-icon" href="img/Taipei_County_Seal.ico">
+<link rel="stylesheet" type="text/css" href="Styles/Synct/jquery-ui.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-C28C54DD
+</script>
+<script src="ClientI18N.jsp?file=Globalize.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-A87AC9EE
+</script>
+{page:scriptIncludes}
+<script type="text/javascript">
+//End Include User Scripts
+
+//Common Script Start @1-8BFA436B
+jQuery(function ($) {
+    var features = { };
+    var actions = { };
+    var params = { };
+//End Common Script Start
+
+//NewRecord1REG_KINDOnChange Event Start @-F8231735
+    actions["NewRecord1REG_KINDOnChange"] = function (eventType, parameters) {
+        var result = true;
+//End NewRecord1REG_KINDOnChange Event Start
+
+//Custom Code @20-2A29BDB7
+
+        document.getElementById("BMSREGTIO_DATE").value =  document.getElementById("BMSREGTYYYMMDD").value;
+        document.getElementById("BMSREGTORG_OT_DATE").value =  document.getElementById("BMSREGTYYYMMDD").value;
+        document.getElementById("BMSREGTIO_TIME").value =  document.getElementById("BMSREGTHHMM").value;
+        document.getElementById("BMSREGTSIGN_DATE").value =  document.getElementById("BMSREGTYYYMMDD").value;
+        document.getElementById("BMSREGTSIGN_TIME").value =  document.getElementById("BMSREGTHHMM").value;
+           
+         var bldcodevalue = document.getElementById("BMSREGTREG_KIND").options[document.getElementById("BMSREGTREG_KIND").selectedIndex].value;
+        document.getElementById("BMSREGTREG_KIND_E").value = bldcodevalue; 
+
+        
+//End Custom Code
+
+//NewRecord1REG_KINDOnChange Event End @-A5B9ECB8
+        return result;
+    };
+//End NewRecord1REG_KINDOnChange Event End
+
+//NewRecord1REG_KIND_EOnChange Event Start @-D38DFFAE
+    actions["NewRecord1REG_KIND_EOnChange"] = function (eventType, parameters) {
+        var result = true;
+//End NewRecord1REG_KIND_EOnChange Event Start
+
+//Custom Code @22-2A29BDB7
+
+        document.getElementById("BMSREGTREG_KIND").value = document.getElementById("BMSREGTREG_KIND_E").value;
+                kindchange();
+                
+//End Custom Code
+
+//NewRecord1REG_KIND_EOnChange Event End @-A5B9ECB8
+        return result;
+    };
+//End NewRecord1REG_KIND_EOnChange Event End
+
+//NewRecord1ACTN_EMPL_EOnChange Event Start @-37A244C4
+    actions["NewRecord1ACTN_EMPL_EOnChange"] = function (eventType, parameters) {
+        var result = true;
+//End NewRecord1ACTN_EMPL_EOnChange Event Start
+
+//Custom Code @24-2A29BDB7
+
+        document.getElementById("BMSREGTACTN_EMPL").value = document.getElementById("BMSREGTACTN_EMPL_E").value;
+
+//End Custom Code
+
+//NewRecord1ACTN_EMPL_EOnChange Event End @-A5B9ECB8
+        return result;
+    };
+//End NewRecord1ACTN_EMPL_EOnChange Event End
+
+//NewRecord1ACTN_EMPLOnChange Event Start @-38B62E01
+    actions["NewRecord1ACTN_EMPLOnChange"] = function (eventType, parameters) {
+        var result = true;
+//End NewRecord1ACTN_EMPLOnChange Event Start
+
+//Custom Code @26-2A29BDB7
+
+        var empvalue = document.getElementById("BMSREGTACTN_EMPL").options[document.getElementById("BMSREGTACTN_EMPL").selectedIndex].value;
+        document.getElementById("BMSREGTACTN_EMPL_E").value = empvalue; 
+
+
+//End Custom Code
+
+//NewRecord1ACTN_EMPLOnChange Event End @-A5B9ECB8
+        return result;
+    };
+//End NewRecord1ACTN_EMPLOnChange Event End
+
+//OnLoad Event Start @-2FD76255
+    actions["OnLoad"] = function (eventType, parameters) {
+        var result = true;
+//End OnLoad Event Start
+
+//Custom Code @14-2A29BDB7
+// -------------------------
+// Write your own code here.
+// -------------------------
+//End Custom Code
+
+//OnLoad Event End @-A5B9ECB8
+        return result;
+    };
+//End OnLoad Event End
+
+//Event Binding @1-5626F51F
+    $('*:ccsControl(NewRecord1, REG_KIND)').ccsBind(function() {
+        this.bind("change", actions["NewRecord1REG_KINDOnChange"]);
+    });
+    $('*:ccsControl(NewRecord1, REG_KIND_E)').ccsBind(function() {
+        this.bind("change", actions["NewRecord1REG_KIND_EOnChange"]);
+    });
+    $('*:ccsControl(NewRecord1, ACTN_EMPL_E)').ccsBind(function() {
+        this.bind("change", actions["NewRecord1ACTN_EMPL_EOnChange"]);
+    });
+    $('*:ccsControl(NewRecord1, ACTN_EMPL)').ccsBind(function() {
+        this.bind("change", actions["NewRecord1ACTN_EMPLOnChange"]);
+    });
+    $(window).ccsBind(function() {
+        this.each(function(){ actions["OnLoad"].call(this); });
+    });
+//End Event Binding
+
+//Plugin Calls @1-00453011
+    $('*:ccsControl(NewRecord1, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+//End Plugin Calls
+
+//Common Script End @1-562554DE
+});
+//End Common Script End
+
+//End CCS script
+
+function open_empno(){
+        var editid    = "NewRecord1ACTN_EMPL_E";
+        var listboxid = "NewRecord1ACTN_EMPL";
+        var modalid   = "empnoModal";
+
+    document.getElementById("EDITID").value    = editid;
+    document.getElementById("LISTBOXID").value = listboxid;
+    document.getElementById("MODALID").value   = modalid;
+    $('#' + modalid).modal('show');
+}
+
+function open_bldcode(code_name,code_type,sub_seq,sub_seq1,editid,listboxid,onchangefname){
+    var modalid   = "bldcodeModal";
+        document.getElementById("BLDCODESearchs_CODE_TYPE").value = code_type;
+        document.getElementById("BLDCODESearchs_SUB_SEQ").value   = sub_seq;
+        document.getElementById("BLDCODESearchs_SUB_SEQ1").value  = sub_seq1;
+
+    document.getElementById("EDITID").value                   = editid;
+    document.getElementById("LISTBOXID").value                = listboxid;
+    document.getElementById("MODALID").value                  = modalid;
+    document.getElementById("ONCHANGEFNAME").value            = onchangefname;
+
+    //onload 抓取資料
+    getbldcodedata();
+
+    $(bldcodeModalLabel).text(code_name + "代碼資料選取");
+    $('#' + modalid).modal('show');
+}
+
+</script>
+</head>
+<body class="theme-default main-menu-animated">
+<div id="main-wrapper">
+  <jsp:include flush="true" page="main_menu.jsp" />
+  <div id="content-wrapper">
+    <ul class="breadcrumb breadcrumb-page">
+      <li>案件管理 
+      <li class="active">BM30101申請案件及分文登錄 </li>
+    </ul>
+    <div class="row">
+      <!-- BEGIN Record NewRecord1 -->
+      <form id="CP_REC" method="post" name="{HTMLFormName}" action="{Action}">
+        <div class="col-sm-12">
+          <div class="panel">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="panel-title">複製掛號資料</span> 
+              </div>
+            </div>
+            <table class="table table-striped table-bordered" cellspacing="0" cellpadding="0">
+              <!-- BEGIN Error -->
+              <tr id="NewRecord1ErrorBlock" class="text-danger">
+                <td colspan="2">{Error}</td>
+              </tr>
+              <!-- END Error -->
+              <tr class="Controls">
+                <th class="text-danger text-right" width="20%">*書表編號</th>
+ 
+                <td><input type="text" id="NewRecord1BOOKSHEET" value="{BOOKSHEET}" name="{BOOKSHEET_Name}"></td>
+              </tr>
+ 
+              <tr class="Controls">
+                <th class="text-danger text-right">*新掛號號碼</th>
+ 
+                <td><input type="text" id="NewRecord1N_REG_YY" maxlength="3" size="3" value="{N_REG_YY}" name="{N_REG_YY_Name}">-<input type="text" id="NewRecord1N_REG_NO" maxlength="7" size="7" value="{N_REG_NO}" name="{N_REG_NO_Name}">-<input type="text" id="NewRecord1N_REG_CG" maxlength="2" size="2" value="{N_REG_CG}" name="{N_REG_CG_Name}"></td>
+              </tr>
+ 
+              <tr class="Controls">
+                <th class="text-danger text-right">&nbsp;*第一次掛號號碼</th>
+ 
+                <td>&nbsp;<input type="text" id="NewRecord1FIRST_REG" value="{FIRST_REG}" name="{FIRST_REG_Name}"></td>
+              </tr>
+ 
+              <tr class="Controls">
+                <th class="text-danger text-right">*業務別</th>
+ 
+                <td>&nbsp;<input type="text" ondblclick="open_bldcode('業務別','OFC','','','V,NewRecord1REG_KIND_E','V,NewRecord1REG_KIND','');" id="NewRecord1REG_KIND_E" style="BACKGROUND-COLOR: #fcf5d8" maxlength="3" size="3" value="{REG_KIND_E}" name="{REG_KIND_E_Name}">
+                  <select id="NewRecord1REG_KIND" name="{REG_KIND_Name}">
+                    <option selected value="">選擇值</option>
+                    {REG_KIND_Options}
+                  </select>
+ </td>
+              </tr>
+ 
+              <tr class="Controls">
+                <th class="text-danger text-right">*承辦人</th>
+ 
+                <td><input type="text" ondblclick="open_empno();" id="NewRecord1ACTN_EMPL_E" style="BACKGROUND-COLOR: #fcf5d8" maxlength="10" size="8" value="{ACTN_EMPL_E}" name="{ACTN_EMPL_E_Name}">
+                  <select id="NewRecord1ACTN_EMPL" name="{ACTN_EMPL_Name}">
+                    <option selected value="">選擇值</option>
+                    {ACTN_EMPL_Options}
+                  </select>
+ </td>
+              </tr>
+ 
+              <tr class="Bottom">
+                <td style="TEXT-ALIGN: right" colspan="2">
+                  <!-- BEGIN Button Button_Insert --><input type="submit" id="NewRecord1Button_Insert" class="Button" alt="確認" value="確認" name="{Button_Name}"><!-- END Button Button_Insert -->
+                  <!-- BEGIN Button Button_Cancel --><input type="submit" id="NewRecord1Button_Cancel" class="Button" alt="返回" value="返回" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- END Record NewRecord1 -->
+  </div>
+</div>
+<div id="main-menu-bg">
+</div>
+<div>
+</div>
+<script type="text/javascript"> window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">'+"<"+"/script>"); </script>
+<script src="assets/javascripts/bootstrap.min.js"></script>
+<script src="assets/javascripts/synctMenu.min.js"></script>
+<script type="text/javascript">
+        init.push(function () {
+                // Javascript code here
+        })
+        window.PixelAdmin.start(init);
+</script>
+<!-- empnoModal start -->
+<div role="dialog" tabindex="-1" aria-hidden="true" id="empnoModal" class="modal fade" aria-labelledby='empnoModalLabel"'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal">×</button> 
+        <h4 id="myModalLabel" class="modal-title">承辦人資料選取</h4>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="EDITID"><input type="hidden" id="LISTBOXID"><input type="hidden" id="MODALID">
+        <jsp:include flush="true" page="getempno.jsp" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- empnoModal end-->
+<!-- bldcodeModal start -->
+<div role="dialog" tabindex="-1" aria-hidden="true" id="bldcodeModal" class="modal fade" aria-labelledby="bldcodeModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal">×</button> 
+        <h4 id="bldcodeModalLabel" class="modal-title">代碼資料選取</h4>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="BLDCODESearchs_CODE_TYPE"><input type="hidden" id="BLDCODESearchs_SUB_SEQ"><input type="hidden" id="BLDCODESearchs_SUB_SEQ1"><input type="hidden" id="EDITID"><input type="hidden" id="LISTBOXID"><input type="hidden" id="MODALID"><input type="hidden" id="ONCHANGEFNAME">
+        <jsp:include flush="true" page="getbldcode.jsp" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- bldcodeModal end-->
+</body>
+</html>
